@@ -80,6 +80,7 @@ body #app{
   width:100%;
   max-width: 600px;
   margin: auto;
+  margin-bottom:1rem;
   text-align: left;
   background-color: #eee;
   border-radius: 1rem;
