@@ -1,0 +1,113 @@
+[v-cloak] {
+  display: none;
+}
+
+body #app{
+  width: 66%;
+  margin:auto;
+  padding:auto;
+  text-align: center;
+}
+
+@media screen and (max-width:900px) {
+  body #app{
+  width: 100%;
+  margin: auto;
+  padding:auto;
+  text-align: center;
+  }
+}
+
+
+#app ul {
+  list-style: none;
+}
+
+#app li > div.done {
+  font-weight: bold;
+}
+
+#app form {
+  display:flex;
+  flex-direction: column;
+}
+
+#app form button {
+  width:8rem;
+  height:3rem;
+  margin:auto;
+  margin-top: 0.5rem;
+  font-size:large;
+  font-weight:bold;
+  margin-bottom:0.5rem;
+}
+
+#app form li {
+  display: flex;
+  width:100%;
+  max-width:300px;
+  margin:auto;
+}
+
+#app form li > label {
+  font-weight: bold;
+}
+
+#app form > label {
+  font-weight: bold;
+  font-size:larger;
+  margin-top:1rem;
+}
+
+#app form > input, #app form textarea {
+  width:100%;
+  max-width:600px;
+  margin:auto;
+  margin-bottom:1rem;
+}
+
+#app > ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+}
+
+#app > ul > li {
+  display:flex;
+  flex-direction: column;
+  text-align: left;
+  width:100%;
+  max-width: 600px;
+  margin: auto;
+  text-align: left;
+  background-color: #eee;
+  border-radius: 1rem;
+  padding:1rem;
+}
+#app .responses > h3 {
+  font-size: larger;
+  margin:0;
+  margin-bottom:0.5rem;
+}
+
+#app .responses > p {
+  white-space: pre-line;
+  font-size: large;
+  margin-left:2rem;
+  word-wrap: break-word;
+}
+
+#app ul {
+  margin:0;
+  padding:0;
+}
+
+#app > ul li > button {
+  width: 8rem;
+  height: 2rem;
+  margin: auto;
+  margin-top: 0.5rem;
+  font-size: large;
+  font-weight: bold;
+}

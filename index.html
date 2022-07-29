@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/modern-css-reset/dist/reset.min.css" />
+  <link rel="stylesheet" href="css/main.css">
+  <title>Astral Brain</title>
+</head>
+<body>
+  <div id="app">
+    <h1>脳内会議用ツール Astral Brain ver0.1</h1>
+    <form v-on:submit.prevent>
+        <label for="name">名前</label>
+        <input v-cloak id="name" type="text" v-model="newName">
+        <ul v-cloak>
+          <li v-cloak v-for="(name, index) in names">
+            <input v-cloak type="radio" v-bind:value="name" name="names" v-bind:id="name" v-model="newName">
+            <label v-cloak v-bind:for="name">{{ name }}</label>
+          </li>
+        </ul>
+        <label for="text">本文</label>
+        <textarea v-cloak id="text" v-model="newText" rows="4" cols="32"></textarea>
+      <button v-on:click="addResponse">投稿</button>
+    </form>
+    <ul>
+      <li v-cloak v-for="(response, index) in responses">
+        <div class="responses" v-bind:class="{ done:response.check }">
+          <h3 v-cloak>
+            <input v-cloak type="checkbox" v-model="response.check">
+            {{ response.name }}
+          </h3>
+          <p v-cloak >
+            {{ response.text }}
+          </p>
+        </div>
+        <br>
+        <button v-on:click="deleteResponse(index)">削除</button>
+      </li>
+    </ul>
+    <!-- <pre>{{ $data }}</pre> -->
+  </div>
+  <script src="https://unpkg.com/vue@3.1.5"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
