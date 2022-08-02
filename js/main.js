@@ -36,8 +36,10 @@ const app = Vue.createApp({
     deleteResponse: function (index) {
       // console.log('Delete!');
       // console.log(index);
-      this.responses.splice(index, 1); //indexの位置から1つ投稿を削除
-      this.cookiesSet();//cookie代入
+      if (window.confirm("本当に投稿をリセットしますか？")) {
+        this.responses.splice(index, 1); //indexの位置から1つ投稿を削除
+        this.cookiesSet();//cookie代入
+      }
     },
     deleteName: function (index) {
       this.names.splice(index, 1); //indexの位置から1つ名前を削除
