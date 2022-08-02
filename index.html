@@ -10,26 +10,29 @@
 </head>
 <body>
   <div id="app">
-    <h1>脳内会議用ツール Astral Brain ver0.1</h1>
-    <p>※(現時点では)画面を閉じたら消えます</p>
+    <h1>脳内会議用ツール Astral Brain ver1.0</h1>
+    <p>画面を閉じても内容が保持されるようになりました！</p>
+    <p>バグを発見した方はTwitterのID:X0rdRyu_LORDまで。</p>
     <form v-on:submit.prevent>
         <label for="name">名前</label>
-        <input v-cloak id="name" type="text" v-model="newName">
-        <ul v-cloak>
+        <input id="name" type="text" v-model="newName"> <!-- 名前入力欄 -->
+        <ul v-cloak> <!-- 名前一覧 -->
           <li v-cloak v-for="(name, index) in names">
-            <input v-cloak type="radio" v-bind:value="name" name="names" v-bind:id="name" v-model="newName">
+            <input type="radio" v-bind:value="name" name="names" v-bind:id="name" v-model="newName"> <!-- 名前選択ボタン -->
             <label v-cloak v-bind:for="name">{{ name }}</label>
+            <button v-on:click="deleteName(index)">削除</button> <!-- 削除ボタン -->
           </li>
         </ul>
-        <label for="text">本文</label>
-        <textarea v-cloak id="text" v-model="newText" rows="4" cols="32"></textarea>
-      <button v-on:click="addResponse">投稿</button>
+        <label for="text">本文</label> <!-- 本文入力欄 -->
+        <textarea id="text" v-model="newText" rows="4" cols="32"></textarea>
+      <button v-on:click="addResponse">投稿</button> <!-- 投稿ボタン -->
+      <button v-on:click="reset">投稿をリセット</button> <!-- リセットボタン -->
     </form>
     <ul>
       <li v-cloak v-for="(response, index) in responses">
         <div class="responses" v-bind:class="{ done:response.check }">
           <h3 v-cloak>
-            <input v-cloak type="checkbox" v-model="response.check">
+            <input type="checkbox" v-model="response.check">
             {{ response.name }}
           </h3>
           <p v-cloak >
@@ -42,6 +45,7 @@
     </ul>
     <!-- <pre>{{ $data }}</pre> -->
   </div>
+  <script src="https://unpkg.com/vue-cookies@1.8.1/vue-cookies.js"></script>
   <script src="https://unpkg.com/vue@3.1.5"></script>
   <script src="js/main.js"></script>
 </body>
