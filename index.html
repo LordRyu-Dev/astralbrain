@@ -27,7 +27,7 @@
         <ul v-cloak> <!-- 名前一覧 -->
           <li v-cloak v-for="(name, index) in names">
             <input type="radio" v-bind:value="name" name="names" v-bind:id="name" v-model="newName"> <!-- 名前選択ボタン -->
-            <label v-cloak v-bind:for="name">{{ name.length <= 20 ? name :name.substr(0,20) + "…" }}</label>
+            <label v-cloak v-bind:for="name">{{ name.length <= 20 ? name :name.substr(0,10) + "…" }}</label>
             <button v-on:click="deleteName(index)">削除</button> <!-- 削除ボタン -->
           </li>
         </ul>
